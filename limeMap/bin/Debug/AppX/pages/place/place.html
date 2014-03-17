@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>homePage</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/pages/place/place.css" rel="stylesheet" />
+    <script src="/pages/place/place.js"></script>
+</head>
+<body>
+    <!-- The content that will be loaded and displayed. -->
+    <div class="map-page-content">
+        <header aria-label="Header content" role="banner">
+            <button data-win-control="WinJS.UI.BackButton"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle"></span>
+
+            </h1>
+            <div class="score-section">
+                <p class="place-score">score: <span class="score" data-win-bind="innerText: score"></span></p>
+                <button id="place-upvote">upvote</button>
+                <button id="place-downvote">downvote</button>
+            </div>
+        </header>
+        <section aria-label="Main content" role="main">
+            <div id="itemTemplate" data-win-control="WinJS.Binding.Template">
+                <div class="visit-thumb">
+                    <div class="visit-name win-type-medium" data-win-bind="textContent: comment"></div>
+                    <div class="visit-score win-type-small" data-win-bind="textContent: rating"></div>
+                </div>
+            </div>
+            <div id="listTarget" class="item-list"></div>
+        </section>
+    </div>
+</body>
+</html>

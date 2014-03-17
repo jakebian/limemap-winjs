@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>homePage</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/pages/list/list.css" rel="stylesheet" />
+    <script src="/pages/list/list.js"></script>
+</head>
+<body>
+    <!-- The content that will be loaded and displayed. -->
+    <div class="fragment homepage">
+        <header aria-label="Header content" role="banner">
+            <button data-win-control="WinJS.UI.BackButton"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">List!</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+            <div id="itemTemplate" data-win-control="WinJS.Binding.Template">
+                <div class="place-thumb">
+                    <div class="place-name win-type-medium"  data-win-bind="textContent: name"></div>
+                    <div class="place-score win-type-small"  data-win-bind="textContent: score"></div>
+                    <a href="#" class="navigate">details</a>
+                </div>
+            </div>
+            <div id="listTarget" class="item-list"></div>
+        </section>
+    </div>
+</body>
+</html>

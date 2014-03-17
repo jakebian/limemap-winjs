@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Lime map</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/pages/root/root.css" rel="stylesheet" />
+    <script src="/pages/root/root.js"></script>
+</head>
+<body>
+    <div id="main-nav" data-win-control="WinJS.UI.NavBar">
+        <a href="" class="nav-item column small-3">Home</a>
+        <a href="" class="nav-item column small-3">Log in</a>
+        <a href="" class="nav-item column small-3">Sign up</a>
+        <a href="" class="nav-item column small-3">About</a>
+    </div>
+    <!-- The content that will be loaded and displayed. -->
+    <div class="full-content">
+
+        <div class="nav">
+            <div class="site-title">LimeMap <a href="" class="menu-trigger"><i class="icon-reorder"></i></a></div>
+        </div>
+
+        <header class="home-header" aria-label="Header content" role="banner">
+            <h1 class="titlearea main-prompt win-type-ellipsis">
+                <span class="pagetitle">I'm looking for</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+            <div id="itemTemplate" data-win-control="WinJS.Binding.Template">
+                <div class="submap-thumb img-fill submap-item column small-12 medium-3">
+
+                    <h3 class="submap-name win-type-medium" data-win-bind="textContent: name"></h3>
+                    <img class="thumb-bg" src="#" data-win-bind="src: bg_img" />
+                    <div class="hover-content">
+                        <p class="submap-desc win-type-medium" data-win-bind="textContent: desc"></p>
+                    </div>
+                </div>
+                
+            </div>
+            <div id="featuredTemplate" data-win-control="WinJS.Binding.Template">
+                <div class="submap-thumb img-fill submap-featured column small-12 medium-4">
+                    <div class="thumb-icon"><i class="icon-paperplane_ico"></i>  </div>
+                    <h3 class="submap-name win-type-medium" data-win-bind="textContent: name"></h3>
+                    <img class="thumb-bg" src="#" data-win-bind="src: bg_img" />
+                    <div class="hover-content">
+                        <p class="submap-desc win-type-medium" data-win-bind="textContent: desc"></p>
+                    </div>
+                </div>
+
+            </div>
+            <div id="featuredTarget" class="item-list"></div>
+            <div  class="item-list">
+                <div id="itemsTarget">
+
+                </div>
+                <div class="thumb-utils">
+                    <div class="submap-thumb-util small-12 medium-3 column">
+                        <i class="icon-reorder_square_line"></i>
+                        <div class="util-label">more submaps </div>
+                    </div>
+
+                    <div class="submap-thumb-util small-12 medium-3 column">
+                        <i class="icon-plus"></i>
+                        <div class="util-label">start a submap  </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

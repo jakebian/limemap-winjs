@@ -1,0 +1,15 @@
+C:\Users\Jacob\Desktop\win8\limeMap\limeMap\bin\Debug\ReverseMap\resources.pri
+C:\Users\Jacob\Desktop\win8\limeMap\limeMap\bin\Debug\AppxManifest.xml
+C:\Users\Jacob\Desktop\win8\limeMap\limeMap\bin\Debug\limeMap.build.appxrecipe
+C:\Users\Jacob\Desktop\win8\limeMap\limeMap\bld\Debug\priconfig.xml
+C:\Users\Jacob\Desktop\win8\limeMap\limeMap\bld\Debug\priconfig.xml.intermediate
+C:\Users\Jacob\Desktop\win8\limeMap\limeMap\bld\Debug\layout.resfiles
+C:\Users\Jacob\Desktop\win8\limeMap\limeMap\bld\Debug\layout.resfiles.intermediate
+C:\Users\Jacob\Desktop\win8\limeMap\limeMap\bld\Debug\resources.resfiles
+C:\Users\Jacob\Desktop\win8\limeMap\limeMap\bld\Debug\resources.resfiles.intermediate
+C:\Users\Jacob\Desktop\win8\limeMap\limeMap\bld\Debug\pri.resfiles
+C:\Users\Jacob\Desktop\win8\limeMap\limeMap\bld\Debug\pri.resfiles.intermediate
+C:\Users\Jacob\Desktop\win8\limeMap\limeMap\bld\Debug\qualifiers.txt
+C:\Users\Jacob\Desktop\win8\limeMap\limeMap\bld\Debug\qualifiers.txt.intermediate
+C:\Users\Jacob\Desktop\win8\limeMap\limeMap\bld\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\Jacob\Desktop\win8\limeMap\limeMap\bld\Debug\ProjectArchitectures.txt

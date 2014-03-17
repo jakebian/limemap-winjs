@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>homePage</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/pages/submap/submap.css" rel="stylesheet" />
+    <script type="text/javascript" src="ms-appx:///Bing.Maps.JavaScript//js/veapicore.js"></script>
+    <script src="/pages/submap/submap.js"></script>
+</head>
+<body>
+    <!-- The content that will be loaded and displayed. -->
+    <div class="places-list item-list">
+        <div class="list-header">All instances</div>
+        <div id="listTarget" class="places-list-content">
+
+        </div>
+    </div>
+    <div class="map-page-content">
+        <div id="headerTemplate" data-win-control="WinJS.Binding.Template">
+            <div class="header-content">
+                <img class="submap-bg" src="#" data-win-bind="src: bg_img" />
+
+                <div class="column header-main  small-12 medium-7 large-9">
+                    <button data-win-control="WinJS.UI.BackButton"></button>
+                    <h1 class="titlearea win-type-ellipsis">
+                        <span class="pagetitle submap-name-big" data-win-bind="textContent: name"></span>
+                    </h1>
+                    <p class="submap-desc-display win-type-medium" >
+                        <i class="icon-information_white"></i>
+                        <span data-win-bind="textContent: desc"></span>
+                    </p>
+                </div>
+
+                <div class="submap-util small-12 medium-5 large-3 right column">
+                    <div class="submap-info small-6 column">
+                        <div class="count-container">
+                            <span class="place-count count-number" data-win-bind="textContent: placeCount"></span>
+                            <span class="count-label">instances</span>
+                        </div>
+                        <div class="count-container">
+                            <span class="closeby-count count-number" data-win-bind="textContent: nearbyCount"></span>
+                            <span class="count-label">within 1 km</span>
+                        </div>
+                    </div>
+                    <div class="submap-actions small-6 column">
+                        <div class="new-place-trigger submap-action column small-12">
+                            <i class="icon-plus"></i>
+                            <span class="trigger-label">new instance</span>
+                        </div>
+                        <div class="showall-trigger submap-action column small-12">
+                            <i class="icon-chevron_up"></i>
+                            <span class="trigger-label">all instances</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="header submap-header" aria-label="Header content column small-12" role="banner">            
+        </header>
+        
+        <div id="mapDiv"> </div>
+
+        <section aria-label="Main content" class="column small-12" role="main">
+            <div id="itemTemplate" data-win-control="WinJS.Binding.Template">
+                <div class="place-thumb column">
+                    <div class="thumb-content small-12 column">
+                        <div class="column small-12 place-name win-type-medium">
+                            <i class="icon-placepin"></i>
+                            <span data-win-bind="textContent: name"></span>
+                        </div>
+
+                        <div class="column small-12 place-thumb-info">
+                            <div class="place-score small-6 column win-type-small">
+                                score: <span class="place-info-display score-display" data-win-bind="textContent: score"></span>
+                            </div>
+                            <div class="place-distance small-6 column win-type-small">
+                                from you: <span class="place-info-display distance-display">5 km</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thumb-nav">
+                        <i class="icon-chevron_right"></i>
+                    </div>
+                </div>
+            </div>
+           
+        </section>
+    </div>
+    
+</body>
+</html>
