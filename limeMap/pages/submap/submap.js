@@ -8,18 +8,18 @@
 
         ready: function (element, options) {
             // TODO: Initialize the page here.
-            var thisObject = options.data;
-            var dataURL = "http://mappet.dev/places/json/" + thisObject.id;
+            var dataURL = "http://limemap.com/places/json/9";
             var page;
             ajaxRequest("GET", dataURL, function (result) {
+                console.log(result);
                 var data = JSON.parse(result.responseText);
                 makeList(data, "itemTemplate", "listTarget", function (element, data) {
                     bindNavigate(element, ".place-thumb", "/pages/place/place.html", { data: data });
                 });
                 page = {
-                    name: thisObject.name,
-                    desc: thisObject.desc,
-                    bg_img:thisObject.bg_img,
+                    name: "A SUBMAP",
+                    desc: "BLAH",
+                    bg_img:"#",
                     placeCount: data.length,
                     nearbyCount: 5,
                 }
@@ -27,23 +27,19 @@
                 headerTemplate.render(page).done(function (result) {
                     $('.submap-header').append(result);
                 });
+                
+
             });
             $('.map-page-content').parent().addClass('map-page');
 
-            
             function initMap() {
-                var map;
-
-                var mapOptions =
-                {
-                    credentials: "Am56LgK9pqHGKdnTIf8fdXYNpUksCPovjIMVOzoPXK_mHAImKghIfBv0I5eNQ_xa"
-                };
-
-                map = new Microsoft.Maps.Map(document.getElementById("mapDiv"), mapOptions);
-                var options = map.getOptions();
-                options.zoom = 5;
-                map.setView(options);
+                var map = new Map();
+                map.init();
+                var data = [{ pos: [50, 50] }, { pos: [60, 60] }];
+                map.addPlaces(data);
+             
             }
+
             Microsoft.Maps.loadModule('Microsoft.Maps.Map', { callback: initMap, culture: "en-us", homeRegion: "US" });
         }
     });

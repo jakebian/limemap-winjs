@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>homePage</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/pages/wizard/wizard.css" rel="stylesheet" />
+    <script type="text/javascript" src="ms-appx:///Bing.Maps.JavaScript//js/veapicore.js"></script>
+    <script src="/pages/wizard/wizard.js"></script>
+    <script src="/js/jquery.wizard.js"></script>
+</head>
+<body>
+    <!-- The content that will be loaded and displayed. -->
+    <div id="mapDiv"> </div>
+    <div id="guide">
+        <h2 class="guide-header">New </h2>
+        
+        <form name="guide">
+
+            <div class="branch" id="adding">
+                <div class="step" data-state="adding">
+                    <div class="step-prompt">Are you on site?</div>
+                    <a href="" class="button action-button white-button next wide" data-next="onsite">Yes</a>
+                    <a href="" class="button action-button white-button next wide" data-next="offsite">No</a>
+                </div>
+            </div>
+            <div class="branch" id="onsite">
+                <div class="step" data-state="onsite">
+                    <div class="step-prompt">Is this your location? If not, drag!.</div>
+                    <a href="" class="button action-button white-button next wide next" data-next="details">next</a>
+                </div>
+            </div>
+            <div class="branch" id="details">
+                <div class="step" data-state="details">
+                    <div class="step-prompt"> Describe your discovery!</div>
+                    <textarea class="wizard-field" id="place-name" placeholder="Best waterfountain ever" name="" id="" cols="30" rows="2"></textarea>
+                    <textarea class="wizard-field" id="place-desc" placeholder="for example: 2nd floor beside room 316" name="" id="" cols="30" rows="10"></textarea>
+                    <a href="" class="button action-button white-button next wide next" data-next="done">Done</a>
+                </div>
+            </div>
+            <div class="branch" id="offsite">
+                <div class="step" data-state="offsite">
+                    <div class="step-prompt"> Drag the pin the location of your item.</div>
+                    <a href="" class="button action-button white-button next wide next" data-next="details">next</a>
+                </div>
+            </div>
+            <div class="branch" id="looking">
+                <div class="step" data-state="end">
+                    <p>looking</p>
+                </div>
+            </div>
+            <div class="step" id="end">
+                <p>Thank you!</p>
+            </div>
+            <div id="submap-id">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
