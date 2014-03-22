@@ -1,23 +1,8 @@
-var MYLOC = false;
-var GEOREADY = false;
-function geoReady(callback) {
-    console.log(navigator.geolocation);
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (loc) {
-            console.log(loc);
-            MYLOC = [loc.coords.latitude, loc.coords.longitude];
-            callback();
-        }, function () {
-            console.log("not allowed");
-        });
-    } else {
-        console.log('else');
-        callback();
-    }
-}
+﻿var GEOREADY = false;
+
 
 function Map() {
-    var map = new BMap(); //Using Gmap implementation
+    var map = new BMap(); //Using Bmap implementation
     var defPos = map.pos(50, 22);
     var defZoom = 12;
     var places = [];
@@ -28,15 +13,21 @@ function Map() {
     this.getMap = function () {
         return map.getMap();
     }
+
+    this.geoReady = function geoReady(callback) {
+        map.geoReady(callback);
+    }
     /**
     * Attempts of find user location, initialize map.
     * @return {Map} this
     */
-    this.init = function () {
-        if (MYLOC) {
-            defPos = map.pos(MYLOC[0], MYLOC[1]);
-        }
+    this.init = function (callback) {
         initMap(defPos, defZoom);
+        this.geoReady(function (center, pos) {
+            defPos = center.center;
+            callback();
+        })
+
     }
 
     this.pos = function (lat, lng) {
@@ -51,6 +42,9 @@ function Map() {
         map.init(pos, zoom);
     }
 
+    this.directions = function (endPoint) {
+        map.getDirections(endPoint, defPos);
+    }
     /**
     * converts a 2-item array to a Pos object
     * @param {array} coords
@@ -63,15 +57,27 @@ function Map() {
         return coords;
     }
 
+
+    this.computeDistance = function (lat, lng, defPos) {
+        var x = defPos.latitude - lat;
+        var y = defPos.longitude - lng;
+        var raw = x * x + y * y;
+        console.log(raw);
+        return Math.sqrt();
+    }
+
     /**
     * adds a draggable pin
     * @param {Pos} pos
     */
     this.addDragPin = function (coords) {
         var marker = map.addDragPin(this.toPos(coords));
+ 
         return new this.pin(marker);
     }
-
+    this.addUserPin = function () {
+        return this.addDragPin(defPos);
+    }
     /**
     * Abstraction for a marker
     * @param {Marker} marker
@@ -141,5 +147,4 @@ function Map() {
     this.getCenter = function () {
         return map.getCenter();
     }
-    this.init();
 }

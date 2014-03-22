@@ -1,4 +1,4 @@
-function BMap() {
+﻿function BMap() {
     var map;
     /**
      * Initializees the map
@@ -21,9 +21,43 @@ function BMap() {
         options.zoom = zoom;
 
         map.setView(options);
+    }
+
+    /**
+    Gets the users location and displays it on the map
+    @param map
+    */
+
+    this.geoReady = function (callback) {
+        
+        var geoLocationProvider = new Microsoft.Maps.GeoLocationProvider(map);
+        geoLocationProvider.getCurrentPosition({ successCallback: function (center, position) { callback(center, position) } });
 
     }
 
+    /* 
+    Centers the map
+    */
+
+    this.setCenter = function (pos) {
+        var options = map.getOptions();
+
+        options.center = pos;
+        map.setView(options);
+    }
+    this.getDirections = function (endPoint, start) {
+        var directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+
+        var startPoint = new Microsoft.Maps.Directions.Waypoint({ location: start });
+        var endPoint = new Microsoft.Maps.Directions.Waypoint({ location: endPoint });
+
+        directionsManager.addWaypoint(startPoint);
+        directionsManager.addWaypoint(endPoint);
+
+        directionsManager.setRenderOptions({ itineraryContainer: document.getElementById('itineraryDiv') });
+
+        directionsManager.calculateDirections();
+    }
     /**
      * Attaches a infobox to a marker
      * @param {new Microsoft.Maps.Pushpin} marker

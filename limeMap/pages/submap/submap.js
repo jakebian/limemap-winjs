@@ -31,14 +31,24 @@
 
             });
             $('.map-page-content').parent().addClass('map-page');
-
+            var map;
             function initMap() {
-                var map = new Map();
-                map.init();
+                 map = new Map();
+                 map.init(function () {
+                     Microsoft.Maps.loadModule('Microsoft.Maps.Directions', { callback: directionsModuleLoad });
+                 });
                 var data = [{ pos: [50, 50] }, { pos: [60, 60] }];
                 map.addPlaces(data);
+                
+
              
             }
+
+            function directionsModuleLoad() {
+                map.directions(map.pos(49.162730, -122.807079));
+            }
+
+
 
             Microsoft.Maps.loadModule('Microsoft.Maps.Map', { callback: initMap, culture: "en-us", homeRegion: "US" });
         }

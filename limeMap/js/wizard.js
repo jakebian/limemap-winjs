@@ -20,17 +20,16 @@ function newWizard(submap,MAP){
 					name=$('#place-name').val();
 					desc = $('#place-desc').val();
                     
-					console.log(point.pos());
                     //ADD TO DATABASE HERE!
 				},
 
 				adding: function($step, action){
 					var branch = $step.children('.chosen').data('next');
 					if(branch=='offsite'){
-						point=MAP.addDragPin(MAP.getCenter());
+					    point = MAP.addUserPin();
 					}
 					if(branch=='onsite'){
-						point=MAP.addDragPin([0,0]);
+					    point = MAP.addUserPin();
 					}
 					return branch;
 				},

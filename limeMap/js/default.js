@@ -77,7 +77,7 @@ function bindNavigate(element, trigger, url, options) {
     })
 }
 
-function ajaxRequest(type, url, success, error, progress) {
+function ajaxRequest(type, url, success, fail,loading) {
     WinJS.xhr({
         type: type,
         url: url,
@@ -87,10 +87,10 @@ function ajaxRequest(type, url, success, error, progress) {
             call(success, result);
         },
         function error(request) {
-            call(error, request);
+            call(fail, request);
         },
         function progress(request) {
-            call(progress, request);
+            call(loading, request);
         }
     )
 }
